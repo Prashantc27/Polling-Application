@@ -44,6 +44,7 @@ Polling Application is a web-based application that allows users to create and p
 - User profile with personal information
 
 ## Usage
+MONGODB_URI= mongodb://localhost:27017/Polling-Application
 
 - User Registration and Authentication : Register a new user using : http://localhost:8002/user/signup or log in using :  http://localhost:8002/user/login credentials : Email: Pra@gmail.com Password: 123
 - Create a Question : After logging in, create a new question by providing a title and description using : http://localhost:8002/postman/questions/create on Postman
