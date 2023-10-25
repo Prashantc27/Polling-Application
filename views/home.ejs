@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>List of Polls</title>
+  </head>
+  <body>
+    <h1>List of Available Polls</h1>
+    <form action="/user/logout" method="post">
+      <button type="submit" class="button">Logout</button>
+    </form>
+    <form action="/user/history" method="get">
+      <button type="submit" class="button">View History</button>
+    </form>
+    <ul>
+      <% data.forEach(question => { %>
+      <li>
+        <%= question.title %>
+        <a
+          href="http://localhost:8002/questions/<%= question._id %>"
+          class="button"
+          ><button>Details</button></a
+        >
+      </li>
+      <% }); %>
+    </ul>
+  </body>
+</html>

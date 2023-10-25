@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Voting History</title>
+  </head>
+  <body>
+    <h1>User's Voting History</h1>
+    <h2>User Details</h2>
+    <p>User ID: <%= votingHistory.user._id %></p>
+    <p>Name: <%= votingHistory.user.name %></p>
+    <p>Email: <%= votingHistory.user.email %></p>
+    <h2>Votes</h2>
+    <ul>
+      <% votingHistory.votes.forEach(vote => { %>
+      <li>
+        Vote ID: <%= vote._id %><br />
+        Question ID: <%= vote.questionId %><br />
+        Selected Option: <%= vote.selectedOption %><br />
+        Vote Timestamp: <%= vote.voteTimestamp %><br />
+
+        <% const selectedOptionString = vote.selectedOption.toString(); %> <%
+        const option = votingHistory.options.find(opt => opt._id.toString() ===
+        selectedOptionString); %> <% if (option) { %> Option ID: <%= option._id
+        %><br />
+        Option Name: <%= option.text %><br />
+        <% } %> <% const questionIdString = vote.questionId.toString(); %> <%
+        const question = votingHistory.questions.find(q => q._id.toString() ===
+        questionIdString); %> <% if (question) { %> Question Title: <%=
+        question.title %><br />
+        Description: <%= question.description %><br />
+        <% } %>
+      </li>
+      <% }); %>
+    </ul>
+  </body>
+</html>
